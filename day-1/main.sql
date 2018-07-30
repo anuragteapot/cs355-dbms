@@ -4,6 +4,10 @@
 
 CREATE DATABASE DBLAB;
 
+/* Select database */
+
+USE DBLAB;
+
 /* Create Table */
 
 create table paper_details(

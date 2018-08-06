@@ -45,10 +45,10 @@ select sd.* from Student_details sd
   inner join Supervisor s on s.student_id = sd.student_id
   group by sd.student_id having count(sd.student_id) = 2;
 
---10
+-- 10
 select count(pa.author_id) from Paper_author pa
   inner join Faculty_details fd on pa.author_id = fd.faculty_id
-  where fd.research_area = 'Big Data';
+  where fd.research_area = 'Big date';
 
 -- 11
 select fd.research_area from Faculty_details fd
@@ -58,4 +58,4 @@ select fd.research_area from Faculty_details fd
 -- 12
 select fd.* from Supervisor s
   inner join Faculty_details fd on fd.faculty_id = s.faculty_id
-  group by s.faculty_id;
+  group by s.faculty_id order by count(*) DESC LIMIT 1;

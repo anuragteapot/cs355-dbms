@@ -1,3 +1,5 @@
+/* SELECT query */
+
 -- 1
 select * from Faculty_details fd
   LEFT JOIN Supervisor s ON fd.faculty_id = s.faculty_id

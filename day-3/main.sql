@@ -7,7 +7,7 @@ create database db_lab3;
 -- Use database
 use db_lab3;
 
--- Create table
+-- Create tables
 create table product(
   productId int NOT NULL,
   productName varchar(50),

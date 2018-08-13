@@ -1,11 +1,5 @@
-
--- DROP DATABASE
-DROP DATABASE DBLAB ;
-
---CREATE DATABASE
-create database DBLAB ;
-
--- USE DATABASE
+DROP DATABASE DBLAB;
+create database DBLAB;
 use DBLAB;
 
 /*CREATE table */
@@ -45,8 +39,6 @@ create table Faculty_details(
     department varchar(25),
     DOB date,
     research_area varchar(100)
-
-
 );
 
 create table Supervisor (

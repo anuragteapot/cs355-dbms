@@ -47,6 +47,7 @@ create table orderedProduct(
 );
 
 -- Trigger
+
 create trigger `change_orderProduct`
 AFTER UPDATE on orderedProduct FOR EACH ROW
 update orders set orders.totalAmount = NEW.price * NEW.quantity where orderId = NEW.orderId;

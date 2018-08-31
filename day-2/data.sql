@@ -1,6 +1,7 @@
 DROP DATABASE DBLAB ;
 
 create database DBLAB ;
+  
 use DBLAB;
 
 create table Paper_details(

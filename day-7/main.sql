@@ -48,18 +48,25 @@ BEGIN
    declare d decimal(5,2);
 
    set d = b*b - 4*a*c;
-  if d<0 then
+
+  if a=0 and b=0 then
+  set roots = 'NULL_NULL';
+  elseif a=0 then
+  set r1 = (-1*c) /b;
+  set roots = CONCAT(r1,'_', 'NULL');
+  elseif d<0 then
     set roots = 'Roots are imaginary';
   else
     set r1 = (-1*b + sqrt(d))/(2*a);
     set r2 = (-1*b - sqrt(d))/(2*a);
     set roots = CONCAT(r1, '_', r2);
   end if;
-
   return roots;
 END; //
 
 DELIMITER ;
 
 select root_calculation(1, 2, 2) as roots;
-select root_calculation(1, -2, 1) as roots;
+select root_calculation(1, 2, 1) as roots;
+select root_calculation(0, -2, 1) as roots;
+select root_calculation(0, 0, 1) as roots;

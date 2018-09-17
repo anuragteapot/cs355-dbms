@@ -13,13 +13,11 @@ create table Paper_details(
 create table Paper_author(
     paper_id varchar(25),
     author_id varchar(25)
-
 );
 
 create table Author_details(
     author_id varchar(25),
     author_type varchar(25) check(author_type in ('student','faculty'))
-
 );
 
 create table Student_details(
@@ -29,7 +27,6 @@ create table Student_details(
     department varchar(25),
     DOB date,
     research_area varchar(100)
-
 );
 
 create table Faculty_details(
@@ -128,8 +125,8 @@ alter table Faculty_details add primary key (faculty_id,research_area);
 alter table Paper_author add primary key (paper_id,author_id);
 alter table Supervisor add primary key (faculty_id,student_id);
 
-alter table Paper_author add foreign key (paper_id) references Paper_details(paper_id);
-alter table Paper_author add foreign key (author_id) references Author_details(author_id);
+alter table Paper_author add CONSTRAINT FK_paper foreign key (paper_id) references Paper_details(paper_id);
+alter table Paper_author add CONSTRAINT FK_author foreign key (author_id) references Author_details(author_id);
 alter table Supervisor add foreign key (faculty_id) references Faculty_details(faculty_id);
 alter table Supervisor add foreign key (student_id) references Student_details(student_id);
 

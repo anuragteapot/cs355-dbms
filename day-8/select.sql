@@ -1,5 +1,4 @@
 -- Select
-
 -- Q1
 CREATE OR REPLACE VIEW Q1 as select First_Name, Last_Name, Salary, Comm from EMPLOYEE;
 select * from Q1;
@@ -37,7 +36,7 @@ CREATE OR REPLACE VIEW Q9 as select count(*) AS Num, Department_ID, AVG(Salary),
 select * from Q9;
 
 -- Q10
-CREATE OR REPLACE VIEW Q10 as select countject required column data from a relation.(*) AS Num, YEAR(Hire_Date) AS year from EMPLOYEE GROUP BY YEAR(Hire_Date),MONTH(Hire_Date) ORDER BY YEAR(Hire_Date),MONTH(Hire_Date);
+CREATE OR REPLACE VIEW Q10 as select count(*) AS Num, YEAR(Hire_Date) AS year from EMPLOYEE GROUP BY YEAR(Hire_Date),MONTH(Hire_Date) ORDER BY YEAR(Hire_Date),MONTH(Hire_Date);
 select * from Q10;
 
 -- Q11
@@ -54,10 +53,7 @@ select * from Q13;
 
 -- Q14
 CREATE OR REPLACE VIEW Q14 as select First_Name from EMPLOYEE WHERE
-   Job_ID in (select Job_ID from EMPLOYEE e NATURAL JOIN DEPARTMENT d where d.Name  = 'Research')
+  Job_ID in (select Job_ID from EMPLOYEE e NATURAL JOIN DEPARTMENT d where d.Name  = 'Research')
   AND
   Job_ID in (select Job_ID from EMPLOYEE e NATURAL JOIN DEPARTMENT d where d.Name  = 'Accounting');
 select * from Q14;
-
--- Example tets
-select * from EMPLOYEE as e,DEPARTMENT as d where e.Department_ID = '11';

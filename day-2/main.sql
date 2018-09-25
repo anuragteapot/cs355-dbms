@@ -150,9 +150,10 @@ select pd.* from Paper_details pd
 
 -- 4
 select sd.* from Student_details sd
-  INNER JOIN Paper_author pa  ON sd.student_id = pa.author_id AND pa.author_id = '102'
-  INNER JOIN Paper_details pd ON pd.paper_id = pa.paper_id
-  WHERE pd.paper_type = 'conference';
+  inner join Paper_author pa on sd.student_id = pa.author_id
+  inner join Paper_details pd on pd.paper_id = pa.paper_id
+  inner join Supervisor s on s.student_id  =  pa.author_id
+  where s.faculty_id = '102' AND pd.paper_type = 'conference';
 
 -- 5
 SELECT pd.paper_title FROM Paper_details pd

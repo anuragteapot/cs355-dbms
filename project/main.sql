@@ -44,6 +44,7 @@ create database bus;
     direction int(11) NOT NULL COMMENT 'UP 0 | Down 1',
     seatNo int(11) not null,
     totalFare int(11) not null,
+    status int(4) COMMENT 'DONE 1 | Pending 0',
     constraint Fk_Users Foreign key(uid)references Users(uid),
     constraint Fk_Bus Foreign key(bid)references Bus(bid)
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 DEFAULT COLLATE=utf8mb4_unicode_ci;
@@ -55,7 +56,9 @@ create database bus;
   CREATE TABLE IF NOT EXISTS Payments (
     pid int(11) AUTO_INCREMENT primary key,
     bdid int(11),
-    status int(4) COMMENT 'DONE 1 | Pending 0'
+    paymentDate Date,
+    paymentAmount int(11) not null,
+    constraint Fk_User_Payments Foreign key(bdid)references BookingDetails(bdid)
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 DEFAULT COLLATE=utf8mb4_unicode_ci;
 
   --
@@ -92,3 +95,19 @@ create database bus;
     direction tinyint(4) NOT NULL COMMENT 'UP 0 | Down 1',
     constraint FK_BusS Foreign Key(bid) references Bus(bid)
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 DEFAULT COLLATE=utf8mb4_unicode_ci;
+
+  --
+  -- 6. Table structure for table `TotalFare`
+  --
+  CREATE TABLE IF NOT EXISTS TotalFare (
+    bid int(10) NOT NULL primary key,
+    totalFare int(11),
+    constraint FK_BusT Foreign Key(bid) references Bus(bid)
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 DEFAULT COLLATE=utf8mb4_unicode_ci;
+
+
+  -- Triggers
+
+  -- create trigger `cleanupBooking`
+  --   BEFORE INSERT on BookingDetails FOR EACH ROW
+  --   delete BookingDetails where bdid in (select bdid from Payments WHERE status = 0) AND  datediff(bookingDate, CURDATE()) > 2;

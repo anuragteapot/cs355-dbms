@@ -64,4 +64,4 @@ select bid, totalFare(bid) from Bus;
 INSERT into  BookingDetails values('bdid', 'uid', 'bid', 'dateOfTravel', 'bookingDate', 'direction', 'seatNo', 'totalFare', 'status');
 
 -- 10. Cancellation.
-DELETE from BookingDetails where bdid = 'bdid';
+DELETE from BookingDetails where bdid = 'bdid' AND uid = 'uid';

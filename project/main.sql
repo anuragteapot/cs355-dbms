@@ -58,6 +58,7 @@ create database bus;
     bdid int(11),
     paymentDate Date,
     paymentAmount int(11) not null,
+    status int(4) COMMENT 'DONE 1 | Pending 0',
     constraint Fk_User_Payments Foreign key(bdid)references BookingDetails(bdid)
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 DEFAULT COLLATE=utf8mb4_unicode_ci;
 
@@ -107,7 +108,11 @@ create database bus;
 
 
   -- Triggers
+  create trigger cleanupBooking BEFORE INSERT on BookingDetails FOR EACH ROW
+    delete from BookingDetails where bdid in (select bdid from Payments WHERE status = 0) AND  datediff(bookingDate, CURDATE()) > 2;
+      
+  create trigger update_Booking_status  AFTER UPDATE on Payments FOR EACH ROW
+    update BookingDetails as b set b.status = NEW.status where b.bdid = NEW.bdid;
 
-  -- create trigger `cleanupBooking`
-  --   BEFORE INSERT on BookingDetails FOR EACH ROW
-  --   delete BookingDetails where bdid in (select bdid from Payments WHERE status = 0) AND  datediff(bookingDate, CURDATE()) > 2;
+  create trigger insert_Booking_status AFTER INSERT on Payments FOR EACH ROW
+    update BookingDetails as b set b.status = NEW.status where b.bdid = NEW.bdid;

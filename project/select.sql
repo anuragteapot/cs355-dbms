@@ -59,3 +59,9 @@ END; //
 DELIMITER ;
 
 select bid, totalFare(bid) from Bus;
+
+-- 9. Final booking.
+INSERT into  BookingDetails values('bdid', 'uid', 'bid', 'dateOfTravel', 'bookingDate', 'direction', 'seatNo', 'totalFare', 'status');
+
+-- 10. Cancellation.
+DELETE from BookingDetails where bdid = 'bdid';

@@ -20,7 +20,7 @@ select (B.numSeat-count(*)) as numSeats From Bus as B INNER join  BookingDetails
 
 -- 6. Number of seats avaliable for a date for all bus.
 -- select (B.numSeat-count(*)) as numSeats From Bus as B INNER join  BookingDetails AS BD on B.bid = BD.bid where dateOfTravel = 'date of travel' AND B.bid = 'B.bid' AND (status = 1 or (status = 0 AND datediff(bookingDate, CURDATE()) <= 2));
-select (B.numSeat-count(*)) as numSeats From Bus as B INNER join  BookingDetails AS BD on B.bid = BD.bid where dateOfTravel = '2018-06-07' AND B.bid = B.bid AND (status = 1 or (status = 0 AND datediff(bookingDate, CURDATE()) <= 2)) group by B.bid;
+select (B.numSeat-count(*)) as numSeats From Bus as B INNER join  BookingDetails AS BD on B.bid = BD.bid where dateOfTravel = '2018-06-07' AND B.bid = B.bid AND (status = 1 or (status = 0 AND datediff(bookingDate, CURDATE()) <= 2)) group by B.bid; 
 
 -- 7. Number of seats avaliable for a date for all bus with all BusInformation.
 -- select B.*,(B.numSeat-count(*)) as numSeats From Bus as B INNER join  BookingDetails AS BD on B.bid = BD.bid where dateOfTravel = 'date of travel' AND B.bid = 'B.bid' AND (status = 1 or (status = 0 AND datediff(bookingDate, CURDATE()) <= 2));
@@ -78,15 +78,3 @@ insert into BookingDetails values ('11',10,'1','2018-02-07','2018-01-07',10,1,64
 
 -- 11. Cancellation.
 DELETE from BookingDetails where bdid = '11' AND uid = '10';
-
--- 12. List of temporary booking with direction.
-select * from BookingDetails as BD inner join Bus as B on B.bid = BD.bid WHERE status = 0 AND fromCity = 'Agra' AND toCity = "Delhi" AND direction = 1;
-
--- 13. List of temporary booking.
-select bid, status, count(*) AS bookings from BookingDetails as BD where status = 0 group by bid;
-
--- 14. Create new admin.
-insert into Users values ('12','Amit Kumar','us62','us621111@gmail.com',1,'123324','IIT Patna','7312319132');
-
--- 15. Each bus revenue.
-select SUM(paymentAmount), count(*) AS count, BD.bid, direction from Payments as pa inner join BookingDetails as BD on BD.bdid = pa.bdid Group by BD.bid, BD.direction;

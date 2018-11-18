@@ -91,8 +91,8 @@ create database bus;
 
   CREATE TABLE IF NOT EXISTS Schedule (
     bid int(11) NOT NULL primary key,
-    arrival Date NOT NULL,
-    departure Date NOT NULL,
+    arrival varchar(50) NOT NULL,
+    departure varchar(50) NOT NULL,
     direction tinyint(4) NOT NULL COMMENT 'UP 0 | Down 1',
     constraint FK_BusS Foreign Key(bid) references Bus(bid)
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 DEFAULT COLLATE=utf8mb4_unicode_ci;

@@ -45,3 +45,22 @@ insert into Amenities values (1,0,0,1,1,7);
 insert into Amenities values (0,0,0,0,0,8);
 insert into Amenities values (1,0,0,0,0,9);
 insert into Amenities values (1,1,1,1,1,10);
+
+-- Insert into AmenitiesShare
+insert into AmenitiesShare values ('ac',10);
+insert into AmenitiesShare values ('wifi',15);
+insert into AmenitiesShare values ('sleeper',5);
+insert into AmenitiesShare values ('washroom',5);
+insert into AmenitiesShare values ('meals',20);
+
+-- Insert into Schedule
+insert into Schedule values (1,'12:00 AM','21:00 PM',0);
+insert into Schedule values (2,'12:00 AM','24:00 PM',0);
+insert into Schedule values (3,'13:00 AM','05:00 PM',0);
+insert into Schedule values (4,'12:00 AM','24:00 PM',0);
+insert into Schedule values (5,'15:00 AM','01:00 PM',0);
+insert into Schedule values (6,'14:00 AM','24:00 PM',0);
+insert into Schedule values (7,'12:00 AM','13:00 PM',0);
+insert into Schedule values (8,'16:00 AM','24:00 PM',0);
+insert into Schedule values (9,'12:00 AM','24:00 PM',0);
+insert into Schedule values (10,'12:00 AM','18:00 PM',0);

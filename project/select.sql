@@ -60,8 +60,11 @@ DELIMITER ;
 
 select bid, totalFare(bid) from Bus;
 
--- 9. Final booking.
+-- 9. cleanupBooking.
+delete from BookingDetails WHERE status = 0 AND datediff(bookingDate, CURDATE()) > 2;
+
+-- 10. Final booking.
 INSERT into  BookingDetails values('bdid', 'uid', 'bid', 'dateOfTravel', 'bookingDate', 'direction', 'seatNo', 'totalFare', 'status');
 
--- 10. Cancellation.
+-- 11. Cancellation.
 DELETE from BookingDetails where bdid = 'bdid' AND uid = 'uid';

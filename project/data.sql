@@ -24,12 +24,24 @@ insert into Bus values ('10','Bus10',30,'Agra','Kerala',1700);
 
 -- Insert into BookingDetails
 insert into BookingDetails values ('1',1,'1','2018-02-07','2018-01-07',1,1,1231,1);
-insert into BookingDetails values ('2',2,'2','2018-06-07','2018-02-02',1,1,2132,0);
-insert into BookingDetails values ('3',3,'3','2018-06-07','2018-05-07',0,1,2343,1);
-insert into BookingDetails values ('4',4,'1','2018-08-07','2018-07-07',1,1,2342,1);
-insert into BookingDetails values ('5',5,'1','2018-09-07','2018-08-07',0,1,5252,0);
-insert into BookingDetails values ('6',6,'2','2018-02-07','2018-03-07',1,1,1245,1);
-insert into BookingDetails values ('7',7,'2','2018-03-07','2018-02-07',0,1,5745,0);
-insert into BookingDetails values ('8',8,'3','2018-01-07','2018-01-07',0,1,1145,0);
-insert into BookingDetails values ('9',9,'1','2018-01-07','2018-01-07',1,1,4645,1);
-insert into BookingDetails values ('10',10,'1','2018-02-07','2018-01-07',1,1,645,1);
+insert into BookingDetails values ('2',2,'2','2018-06-07','2018-02-02',2,1,2132,0);
+insert into BookingDetails values ('3',3,'3','2018-06-07','2018-05-07',3,1,2343,1);
+insert into BookingDetails values ('4',4,'1','2018-08-07','2018-07-07',4,1,2342,1);
+insert into BookingDetails values ('5',5,'1','2018-09-07','2018-08-07',5,1,5252,0);
+insert into BookingDetails values ('6',6,'2','2018-02-07','2018-03-07',6,1,1245,1);
+insert into BookingDetails values ('7',7,'2','2018-03-07','2018-02-07',7,1,5745,0);
+insert into BookingDetails values ('8',8,'3','2018-01-07','2018-01-07',8,1,1145,0);
+insert into BookingDetails values ('9',9,'1','2018-01-07','2018-01-07',9,1,4645,1);
+insert into BookingDetails values ('10',10,'1','2018-02-07','2018-01-07',10,1,645,1);
+
+-- Insert into Users
+insert into Amenities values (1,0,1,1,1,1);
+insert into Amenities values (0,0,1,0,1,2);
+insert into Amenities values (0,0,1,1,0,3);
+insert into Amenities values (0,0,1,1,1,4);
+insert into Amenities values (1,0,1,0,1,5);
+insert into Amenities values (1,0,1,1,0,6);
+insert into Amenities values (1,0,0,1,1,7);
+insert into Amenities values (0,0,0,0,0,8);
+insert into Amenities values (1,0,0,0,0,9);
+insert into Amenities values (1,1,1,1,1,10);

@@ -11,8 +11,8 @@ create database bus;
     name varchar(400) NOT NULL DEFAULT '',
     username varchar(150) NOT NULL DEFAULT '',
     email varchar(100) NOT NULL DEFAULT '',
-    password varchar(100) NOT NULL DEFAULT '',
     admin tinyint(4) NOT NULL DEFAULT 0,
+    password varchar(100) NOT NULL DEFAULT '',
     address varchar(100) NOT NULL DEFAULT '',
     phonenumber varchar(15) NOT NULL DEFAULT 0,
     PRIMARY KEY (uid)
@@ -110,7 +110,7 @@ create database bus;
   -- Triggers
   create trigger cleanupBooking BEFORE INSERT on BookingDetails FOR EACH ROW
     delete from BookingDetails where bdid in (select bdid from Payments WHERE status = 0) AND  datediff(bookingDate, CURDATE()) > 2;
-      
+
   create trigger update_Booking_status  AFTER UPDATE on Payments FOR EACH ROW
     update BookingDetails as b set b.status = NEW.status where b.bdid = NEW.bdid;
 

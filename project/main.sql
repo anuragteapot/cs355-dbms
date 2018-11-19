@@ -280,3 +280,6 @@ create database bus;
 
   -- 15. Each bus revenue.
   select SUM(paymentAmount), count(*) AS count, BD.bid, direction from Payments as pa inner join BookingDetails as BD on BD.bdid = pa.bdid Group by BD.bid, BD.direction;
+
+  -- 16. Update booking status if cancellation is formed
+  update BookingDetails set status = -1 where datediff(bookingDate,CURDATE())>2 AND status = 0;
